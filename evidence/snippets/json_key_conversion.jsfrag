@@ -1,0 +1,1 @@
+function ft(e,t=!1){return!e||typeof e!=`object`||e instanceof Date||e instanceof RegExp?e:Array.isArray(e)?e.map(e=>t?typeof e==`object`?ft(e,t):e:ft(e)):Object.keys(e).reduce((n,r)=>{let i=(0,dt.default)(r);return n[i]=t?e[r]:ft(e[r]),n},{})}function V(e,t){return typeof e==`string`?(0,dt.default)(e):ft(e,t)}

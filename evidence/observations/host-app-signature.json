@@ -1,0 +1,32 @@
+{
+  "checked_at_utc": "2026-11-03T09:36:50.109301+00:00",
+  "execution_context": "outside Codex filesystem sandbox; read-only verification",
+  "host_executable_sha256": "9b87a98c6131d45563d2b9d204cd329baad8a58d44508012a4219ddba871a7cc",
+  "host_signature_verified": true,
+  "scope_limit": "This verifies the host application bundle, not the independently downloaded extension scripts in the user profile. No detached vendor signature for those profile scripts was independently verified.",
+  "commands": [
+    {
+      "argv": [
+        "codesign",
+        "-d",
+        "--verbose=2",
+        "/Applications/ima.copilot.app"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "Executable=/Applications/ima.copilot.app/Contents/MacOS/ima.copilot\nIdentifier=com.tencent.imamac\nFormat=app bundle with Mach-O thin (arm64)\nCodeDirectory v=20500 size=766 flags=0x10000(runtime) hashes=13+7 location=embedded\nSignature size=9130\nAuthority=Developer ID Application: Tencent Technology (Shenzhen) Company Limited (88L2Q4487U)\nAuthority=Developer ID Certification Authority\nAuthority=Apple Root CA\nTimestamp=2026年10月30日 at 8:04:48 PM\nInfo.plist entries=43\nTeamIdentifier=88L2Q4487U\nRuntime Version=26.2.0\nSealed Resources version=2 rules=13 files=74\nInternal requirements count=1 size=180\nTotal signatures=1\nChosen signature=1\n"
+    },
+    {
+      "argv": [
+        "codesign",
+        "--verify",
+        "--strict",
+        "--verbose=2",
+        "/Applications/ima.copilot.app"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "--prepared:/Applications/ima.copilot.app/Contents/Frameworks/SSZipArchive.framework/Versions/Current/.\n--validated:/Applications/ima.copilot.app/Contents/Frameworks/SSZipArchive.framework/Versions/Current/.\n--prepared:/Applications/ima.copilot.app/Contents/Frameworks/Reachability.framework/Versions/Current/.\n--validated:/Applications/ima.copilot.app/Contents/Frameworks/Reachability.framework/Versions/Current/.\n--prepared:/Applications/ima.copilot.app/Contents/Frameworks/RDelivery.framework/Versions/Current/.\n--validated:/Applications/ima.copilot.app/Contents/Frameworks/RDelivery.framework/Versions/Current/.\n--prepared:/Applications/ima.copilot.app/Contents/Frameworks/ResHub.framework/Versions/Current/.\n--validated:/Applications/ima.copilot.app/Contents/Frameworks/ResHub.framework/Versions/Current/.\n--prepared:/Applications/ima.copilot.app/Contents/Frameworks/ImSDKForMac_Plus.framework/Versions/Current/.\n--validated:/Applications/ima.copilot.app/Contents/Frameworks/ImSDKForMac_Plus.framework/Versions/Current/.\n--prepared:/Applications/ima.copilot.app/Contents/Frameworks/RAFTMeasure.framework/Versions/Current/.\n--validated:/Applications/ima.copilot.app/Contents/Frameworks/RAFTMeasure.framework/Versions/Current/.\n--prepared:/Applications/ima.copilot.app/Contents/Frameworks/ima.copilot Framework.framework/Versions/Current/.\n--validated:/Applications/ima.copilot.app/Contents/Frameworks/ima.copilot Framework.framework/Versions/Current/.\n--prepared:/Applications/ima.copilot.app/Contents/Frameworks/RaftInterface.framework/Versions/Current/.\n--validated:/Applications/ima.copilot.app/Contents/Frameworks/RaftInterface.framework/Versions/Current/.\n--prepared:/Applications/ima.copilot.app/Contents/Frameworks/TDOS_Diagnose.framework/Versions/Current/.\n--validated:/Applications/ima.copilot.app/Contents/Frameworks/TDOS_Diagnose.framework/Versions/Current/.\n--prepared:/Applications/ima.copilot.app/Contents/Frameworks/Sparkle.framework/Versions/Current/.\n--validated:/Applications/ima.copilot.app/Contents/Frameworks/Sparkle.framework/Versions/Current/.\n--prepared:/Applications/ima.copilot.app/Contents/Frameworks/MMKVCore.framework/Versions/Current/.\n--validated:/Applications/ima.copilot.app/Contents/Frameworks/MMKVCore.framework/Versions/Current/.\n--prepared:/Applications/ima.copilot.app/Contents/Frameworks/YYModel.framework/Versions/Current/.\n--validated:/Applications/ima.copilot.app/Contents/Frameworks/YYModel.framework/Versions/Current/.\n--prepared:/Applications/ima.copilot.app/Contents/Frameworks/MMKV.framework/Versions/Current/.\n--validated:/Applications/ima.copilot.app/Contents/Frameworks/MMKV.framework/Versions/Current/.\n--prepared:/Applications/ima.copilot.app/Contents/Helpers/ima_viewer.app\n--validated:/Applications/ima.copilot.app/Contents/Helpers/ima_viewer.app\n/Applications/ima.copilot.app: valid on disk\n/Applications/ima.copilot.app: satisfies its Designated Requirement\n"
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "source_url": "https://privacy.qq.com/document/preview/aca5ed13893d47cfa31697704c2dd366",
+  "title": "ima.copilot（PC端）隐私保护指引",
+  "effective_date_as_displayed": "2026-10-23",
+  "updated_date_as_displayed": "2026-10-23",
+  "read_date": "2026-11-03",
+  "read_method": "Official page rendered in the in-app browser; no authenticated account was required.",
+  "section": "1.2（1）",
+  "short_verbatim_substring": "对话内容会被上传至我们的云端服务器",
+  "claim_scope": "AI content cloud processing is disclosed. This quote does not establish API key retention or encryption at rest.",
+  "limit": "Only a short reference is preserved, not a cryptographically authenticated complete historical policy snapshot."
+}

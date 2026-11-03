@@ -1,0 +1,1 @@
+$.bind(Y.KyUrlPrefix).toConstantValue(`${Zi()}/cgi-bin/`)

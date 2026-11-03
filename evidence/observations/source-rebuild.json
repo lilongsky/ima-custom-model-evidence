@@ -1,0 +1,38 @@
+{
+  "source_ids": [
+    "settings_main",
+    "settings_http",
+    "settings_account",
+    "settings_runtime",
+    "ask_hooks",
+    "copilot_bundle"
+  ],
+  "fragment_ids": [
+    "runtime_body",
+    "host_resolver",
+    "snake_case_helper",
+    "json_key_conversion",
+    "ky_client",
+    "ky_service",
+    "fetch_service",
+    "model_http_service",
+    "model_presenter",
+    "input_hook",
+    "host_injection",
+    "service_path_injection",
+    "host_export_binding",
+    "host_main_import_binding",
+    "host_http_import_binding",
+    "http_default_prefix",
+    "model_input_widget",
+    "ask_model_info",
+    "ask_sse_request",
+    "ask_route",
+    "ask_host_injection",
+    "copilot_model_info",
+    "copilot_route"
+  ],
+  "all_parent_hashes_match": true,
+  "all_fragment_bytes_and_offsets_match": true,
+  "network_used": false
+}

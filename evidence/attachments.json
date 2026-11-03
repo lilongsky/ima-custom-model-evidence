@@ -1,0 +1,11 @@
+{
+  "attachments": [
+    {
+      "path": "evidence/screenshots/user-supplied-save-error.png",
+      "sha256": "59cac11c744ed385379e393dadb251d633ddc581b7faa609a885c713eddae57c",
+      "source": "User-supplied screenshot in this investigation, 2026-11-03. No independent timestamp or cryptographic device attestation.",
+      "meaning": "UI displays complete localhost endpoint, slash-containing model id, masked key, and generic validation failure.",
+      "not_proven": "Does not identify a forbidden character or the backend failure branch."
+    }
+  ]
+}

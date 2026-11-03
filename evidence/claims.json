@@ -1,0 +1,113 @@
+{
+  "schema_version": 1,
+  "claims": [
+    {
+      "id": "C1",
+      "statement": "The inspected client constructs an ima add_model request containing the supplied API key.",
+      "status": "observed in source and controlled local execution",
+      "fragment_ids": [
+        "model_presenter",
+        "model_http_service",
+        "json_key_conversion",
+        "service_path_injection",
+        "host_resolver",
+        "host_injection",
+        "ky_service",
+        "fetch_service",
+        "ky_client"
+      ],
+      "local_evidence": [
+        "evidence/source-manifest.json",
+        "evidence/observations/offline-reproduction.json"
+      ],
+      "limits": [
+        "No live authenticated save-request capture.",
+        "Does not establish server storage, retention, access control, or a breach."
+      ]
+    },
+    {
+      "id": "C2",
+      "statement": "The inspected frontend preserves slash-containing model names.",
+      "status": "observed in source and controlled local execution",
+      "fragment_ids": [
+        "input_hook",
+        "model_presenter",
+        "model_input_widget"
+      ],
+      "local_evidence": [
+        "evidence/source-manifest.json",
+        "evidence/observations/offline-reproduction.json"
+      ],
+      "limits": [
+        "No public-endpoint backend A/B test; separate server name rules remain possible."
+      ]
+    },
+    {
+      "id": "C3",
+      "statement": "The local Magpie gateway accepted group/deepseek-v4-1-flash and replied OK.",
+      "status": "observed real local model request",
+      "fragment_ids": [],
+      "local_evidence": [
+        "evidence/observations/magpie-direct-probe.json"
+      ],
+      "limits": [
+        "One point-in-time gateway test, not an ima-server compatibility test."
+      ]
+    },
+    {
+      "id": "C4",
+      "statement": "A cloud validation path cannot reach the user computer through its own 127.0.0.1 address. This is a plausible explanation of the save failure.",
+      "status": "architecture-based inference; exact failure branch unobserved",
+      "fragment_ids": [
+        "model_presenter",
+        "model_http_service",
+        "host_resolver"
+      ],
+      "local_evidence": [
+        "evidence/source-manifest.json",
+        "evidence/attachments.json",
+        "evidence/screenshots/user-supplied-save-error.png"
+      ],
+      "limits": [
+        "Server may reject loopback, fail to connect, impose protocol/name rules, or take another branch.",
+        "Generic UI validation error is not a model-character error code."
+      ]
+    },
+    {
+      "id": "C5",
+      "statement": "Inspected chat code sends question and model identity to the ima assistant service; official privacy text discloses AI content cloud processing.",
+      "status": "client-source observation and official policy statement; backend delegation remains an inference",
+      "fragment_ids": [
+        "ask_model_info",
+        "ask_sse_request",
+        "ask_route",
+        "ask_host_injection",
+        "copilot_model_info",
+        "copilot_route"
+      ],
+      "local_evidence": [
+        "evidence/source-manifest.json",
+        "evidence/observations/privacy-policy-reference.json"
+      ],
+      "external_evidence": [
+        "https://privacy.qq.com/document/preview/aca5ed13893d47cfa31697704c2dd366"
+      ],
+      "limits": [
+        "No observation of ima-server-to-provider traffic.",
+        "Policy statement does not establish API key storage details."
+      ]
+    },
+    {
+      "id": "C6",
+      "statement": "A real native-client save-request capture is not yet available.",
+      "status": "not obtained",
+      "fragment_ids": [],
+      "local_evidence": [
+        "docs/network-capture.md"
+      ],
+      "limits": [
+        "DevTools blocked on the settings page; native UI capture preparation stopped at Mac lock before logging or form submission."
+      ]
+    }
+  ]
+}

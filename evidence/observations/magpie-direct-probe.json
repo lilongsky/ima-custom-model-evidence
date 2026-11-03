@@ -1,0 +1,41 @@
+{
+  "tested_at_utc": "2026-11-03T08:20:08.605700+00:00",
+  "endpoint": "http://127.0.0.1:3425/v1/chat/completions",
+  "request": {
+    "model": "group/deepseek-v4-1-flash",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Reply with OK only."
+      }
+    ],
+    "max_tokens": 32,
+    "stream": false
+  },
+  "credentials": "fixed local gateway token; omitted",
+  "duration_seconds": 3.105,
+  "http_status": 200,
+  "response": {
+    "object": "chat.completion",
+    "model": "group/deepseek-v4-1-flash",
+    "usage": {
+      "completion_tokens": 2,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      },
+      "prompt_tokens": 7593,
+      "prompt_tokens_details": {
+        "cache_write_tokens": 0,
+        "cached_tokens": 7424
+      },
+      "total_tokens": 7595
+    },
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "content": "OK",
+        "has_reasoning_content": false
+      }
+    ]
+  }
+}

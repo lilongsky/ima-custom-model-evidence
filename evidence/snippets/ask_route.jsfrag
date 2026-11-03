@@ -1,0 +1,1 @@
+this.qaService.ask({url:`${this.urlPrefix}assistant/${this.qaPath}`

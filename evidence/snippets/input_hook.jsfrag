@@ -1,0 +1,1 @@
+({maxLength:e,onChange:t,message:n})=>{let r=QF(),i=n??`最多支持输入${e}字`;return M(n=>{let a=n.target.value.trim();a.length>e?(r.error(i),t(a.slice(0,e))):t(a)})}

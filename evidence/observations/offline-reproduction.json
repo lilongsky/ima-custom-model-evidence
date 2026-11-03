@@ -1,0 +1,74 @@
+{
+  "evidence_kind": "controlled local execution; fetch intercepted before network",
+  "network_used": false,
+  "real_credentials_used": false,
+  "scope": "Selected original ima client functions. Does not observe Tencent server behavior or a live authenticated request.",
+  "substitutions": [
+    "Synthetic browser environment with production-default host.",
+    "Query-presence helper substituted only inside host resolver.",
+    "Empty account headers; optional application crypto service absent.",
+    "Error type, reporting, enum, and store dependency stubs.",
+    "globalThis.fetch captures the original Request and supplies a synthetic error response."
+  ],
+  "host": "https://ima.qq.com",
+  "requests": [
+    {
+      "url": "https://ima.qq.com/cgi-bin/customize_models/add_model",
+      "method": "POST",
+      "body": {
+        "model_info": {
+          "api_uri": "http://127.0.0.1:3425/v1/chat/completions",
+          "api_key": "IMA_EVIDENCE_DUMMY_KEY_DO_NOT_USE",
+          "model_name": "group/deepseek-v4-1-flash",
+          "max_input_tokens": 32,
+          "max_output_tokens": 8
+        }
+      }
+    }
+  ],
+  "result": {
+    "success": false,
+    "errorMessage": "SYNTHETIC_REPLY_NO_NETWORK"
+  },
+  "input_checks": [
+    {
+      "input": "group/deepseek-v4-1-flash",
+      "output": "group/deepseek-v4-1-flash",
+      "unchanged": true
+    },
+    {
+      "input": "deepseek-v4-1-flash",
+      "output": "deepseek-v4-1-flash",
+      "unchanged": true
+    },
+    {
+      "input": "a/b/c",
+      "output": "a/b/c",
+      "unchanged": true
+    }
+  ],
+  "checks": {
+    "requestCountIsOne": true,
+    "targetIsImaCloud": true,
+    "methodIsPost": true,
+    "markerPreserved": true,
+    "configuredLocalModelUriIsAJsonField": true,
+    "syntheticReplyPropagated": true,
+    "slashInputsPreserved": true,
+    "noInputNotices": true
+  },
+  "source_manifest_sha256": "203acd26623434c8440403d435e6c3d5213f894c5839b2f3a88f2bb7743763b3",
+  "loaded_fragments": [
+    "runtime_body",
+    "host_resolver",
+    "snake_case_helper",
+    "json_key_conversion",
+    "ky_client",
+    "ky_service",
+    "fetch_service",
+    "model_http_service",
+    "model_presenter",
+    "input_hook"
+  ],
+  "all_passed": true
+}

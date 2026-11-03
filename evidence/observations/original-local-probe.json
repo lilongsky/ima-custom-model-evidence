@@ -1,0 +1,90 @@
+{
+  "scope": "Local execution of selected original source functions. No real network, credentials, account, or saved application configuration.",
+  "substitutions": [
+    "Browser environment is synthetic production-default environment.",
+    "Query-presence helper only is substituted for host resolver.",
+    "Account headers are empty; optional application crypto service is absent.",
+    "Response error type and enums are dependency stubs.",
+    "globalThis.fetch captures the original Request and returns a synthetic response."
+  ],
+  "transportBodyLimit": "Captured before TLS or any optional app crypto. Not a capture of a historical or live authenticated request.",
+  "host": "https://ima.qq.com",
+  "requests": [
+    {
+      "url": "https://ima.qq.com/cgi-bin/customize_models/add_model",
+      "method": "POST",
+      "body": {
+        "model_info": {
+          "api_uri": "http://127.0.0.1:3425/v1/chat/completions",
+          "api_key": "IMA_EVIDENCE_DUMMY_KEY_DO_NOT_USE",
+          "model_name": "group/deepseek-v4-1-flash",
+          "max_input_tokens": 32,
+          "max_output_tokens": 8
+        }
+      }
+    }
+  ],
+  "result": {
+    "success": false,
+    "errorMessage": "SYNTHETIC_REPLY_NO_NETWORK"
+  },
+  "checks": {
+    "requestCountIsOne": true,
+    "targetIsImaCloud": true,
+    "methodIsPost": true,
+    "markerPreserved": true,
+    "configuredLocalModelUriIsAJsonField": true,
+    "syntheticReplyPropagated": true
+  },
+  "allPassed": true,
+  "segments": [
+    {
+      "name": "account host resolver",
+      "startUtf16": 13962,
+      "endUtf16": 14631,
+      "sha256": "f7c6299170d4e812009334b2ea698e833de1e4a03584987e77fd97a9249b19fa"
+    },
+    {
+      "name": "original snake_case helper",
+      "startUtf16": 23433,
+      "endUtf16": 26973,
+      "sha256": "c7080545060f48c2ba81821449a8c46f0313b47bba7e594f7360cac4641eb48b"
+    },
+    {
+      "name": "original JSON key conversion",
+      "startUtf16": 26973,
+      "endUtf16": 27285,
+      "sha256": "da64b0acc1512aa614503e675cdc2bc9c43f6a71be485f72d432118391e2abe4"
+    },
+    {
+      "name": "original Ky HTTP client",
+      "startUtf16": 35288,
+      "endUtf16": 44462,
+      "sha256": "d064b32deccdebf64e0ce90dbb8f71a87c33662391f66131b845e047b6ff5889"
+    },
+    {
+      "name": "original KyService class",
+      "startUtf16": 47219,
+      "endUtf16": 52802,
+      "sha256": "0d7911be9388e067b05d79d7613b953261e5d8cc930bf8a1e0caed8ba46d2f7a"
+    },
+    {
+      "name": "original FetchService class",
+      "startUtf16": 34755,
+      "endUtf16": 35041,
+      "sha256": "2629f20f1836e9f3102c9439ad45427e34db9e8cca8c10b87bf057bf2b3392c2"
+    },
+    {
+      "name": "original custom-model HTTP service",
+      "startUtf16": 72823,
+      "endUtf16": 74570,
+      "sha256": "7c0e7decfb81d0da21c8a7717467099ca0c9dc804e149d59a7076e9302ac2d8c"
+    },
+    {
+      "name": "original model presenter",
+      "startUtf16": 1019020,
+      "endUtf16": 1021680,
+      "sha256": "666c167264bff2df2b36306c8342a9140d0f9c2db5fe20a29f39cbb4c78116e2"
+    }
+  ]
+}

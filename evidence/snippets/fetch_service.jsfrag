@@ -1,0 +1,1 @@
+U=class{constructor(e,t){this.kyService=e,this.logger=t,this.ky=this.kyService.create()}get(e,t){return this.ky.get(e,t).json()}post(e,t){return this.ky.post(e,t).json()}put(e,t){return this.ky.put(e,t).json()}delete(e,t){return this.ky.delete(e,t).json()}extends(e){this.ky.extend(e)}}

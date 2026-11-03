@@ -1,0 +1,12 @@
+{
+  "name": "ima-custom-model-evidence",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Verifiable client-side evidence for Tencent ima custom-model configuration submission",
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "verify": "node scripts/verify.cjs",
+    "reproduce": "node scripts/reproduce.cjs",
+    "test": "node scripts/verify.cjs && node scripts/reproduce.cjs --check"
+  }
+}
