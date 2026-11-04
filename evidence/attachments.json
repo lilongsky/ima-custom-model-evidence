@@ -6,6 +6,25 @@
       "source": "User-supplied screenshot in this investigation, 2026-11-03. No independent timestamp or cryptographic device attestation.",
       "meaning": "UI displays complete localhost endpoint, slash-containing model id, masked key, and generic validation failure.",
       "not_proven": "Does not identify a forbidden character or the backend failure branch."
+    },
+    {
+      "path": "evidence/screenshots/live-save-error-crop.png",
+      "sha256": "b395ecad574e3c5ae5ac7c5a0ce04ea812c1e35b29f3c7a84f0a3e481ca50fcd",
+      "source": "Native ima UI screenshot captured immediately after the raw-mode test Save action on 2026-11-04. Original remains private because surrounding windows show knowledge-base content.",
+      "original_private_screenshot_sha256": "e538096ab40f23d90011b2de15bab12ad90bf00693572b2d5c6fc3936df4249e",
+      "original_image_size": [
+        2560,
+        1696
+      ],
+      "crop_box_left_top_right_bottom": [
+        840,
+        232,
+        1720,
+        1392
+      ],
+      "transformation": "Exact pixel crop only; no generated content, resizing or retouching. PNG saved without original metadata.",
+      "meaning": "Same test endpoint and slash-containing model id, masked synthetic key, and the generic validation-failure toast.",
+      "not_proven": "Screenshot alone does not identify the backend failure cause or authenticate collection time."
     }
   ]
 }

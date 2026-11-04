@@ -6,3 +6,5 @@ node_modules/
 *.pcapng
 raw-netlog*.json
 .DS_Store
+__pycache__/
+*.pyc

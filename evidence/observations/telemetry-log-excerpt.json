@@ -1,0 +1,79 @@
+{
+  "schema_version": 1,
+  "evidence_type": "real_outgoing_telemetry_body_json_excerpt",
+  "input_sha256": "d34d305b5abe297c657ed6401f9fab84b3f0c9ebfb36c4c500e9a5033427aa84",
+  "endpoint": "https://galileotelemetry.tencent.com/collect",
+  "url_request_source_id": 8313,
+  "binding": {
+    "session_source_id": 8194,
+    "stream_id": 11,
+    "socket_source_id": 8193,
+    "session_initialized_event_index": 8944
+  },
+  "body_byte_length": 7038,
+  "body_sha256": "1ed1159250355518b79a2432cbb29cff6dbb841083a381b731068929c87cf7f8",
+  "data_frames": [
+    {
+      "input_segments": [
+        {
+          "event_index": 11164,
+          "decoded_event_byte_offset": 0,
+          "byte_length": 7047
+        }
+      ],
+      "frame_byte_length": 7047,
+      "frame_sha256": "43e02c95245b0725fbf8c6f98cc69e4cdfe2d34d54ce072e72138137477702bf",
+      "payload_byte_length": 7038
+    }
+  ],
+  "selected_log": {
+    "json_pointer_to_nested_string": "/d2/2/message/0",
+    "nested_string_utf8_byte_length": 1032,
+    "nested_string_sha256": "8594472e6a20edf3d762dde5fdad7eb2613a4a459da162cca2759f009cdd18fb",
+    "nested_json_excerpt": {
+      "url": "https://ima.qq.com/cgi-bin/customize_models/add_model",
+      "status": 200,
+      "method": "POST",
+      "ret": "100001",
+      "isErr": true,
+      "param": "{\"model_info\":{\"api_uri\":\"http://127.0.0.1:3425/v1/chat/completions\",\"api_key\":\"IMA_PUBLIC_EVIDENCE_20261104_11d4a342\",\"model_name\":\"group/deepseek-v4-1-flash\",\"max_input_tokens\":172,\"max_output_tokens\":32}}",
+      "data": "{\"code\":100001, \"msg\":\"校验失败，请检查模型配置\"}"
+    },
+    "omitted_nested_field_names": [
+      "aegisv2_goto",
+      "connectTime",
+      "domainLookup",
+      "duration",
+      "errorMsg",
+      "isHttps",
+      "msg",
+      "nextHopProtocol",
+      "preHandleTime",
+      "reqHeaders",
+      "requestBy",
+      "requestTime",
+      "requestType",
+      "resHeaders",
+      "responseTime",
+      "span",
+      "tcpAndRequestGap",
+      "timestamp",
+      "tlsTime",
+      "trace",
+      "transferSize",
+      "urlQuery"
+    ],
+    "param_json_equals_captured_add_model_request": true,
+    "param_utf8_sha256": "fc0dfe2b430ac8cf331b38accd871b0a808cf192b8123f9e7405b13c595d9a3f",
+    "param_bytes_equal_captured_request": true
+  },
+  "redaction": [
+    "Full telemetry body and DATA frame bytes are not published.",
+    "Other log entries, account/device identifiers, headers, timestamps and trace/span values are omitted.",
+    "Published param and data strings are unchanged and verified against the benign test request/response."
+  ],
+  "limits": [
+    "This records one observed failed-save flow with a synthetic key.",
+    "No claim that every key or every version is logged, or that a real-key breach occurred."
+  ]
+}

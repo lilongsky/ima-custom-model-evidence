@@ -7,6 +7,6 @@
   "scripts": {
     "verify": "node scripts/verify.cjs",
     "reproduce": "node scripts/reproduce.cjs",
-    "test": "node scripts/verify.cjs && node scripts/reproduce.cjs --check"
+    "test": "node scripts/verify.cjs && node scripts/verify_live.cjs && node scripts/reproduce.cjs --check"
   }
 }

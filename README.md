@@ -1,6 +1,6 @@
 # Tencent ima 自定义模型 API Key 提交流程：可复核证据
 
-本仓库记录 2026-11-03 对 macOS 版 ima 本地客户端的检查。**所见客户端的保存流程会把用户填写的 `apiKey`、`apiUri` 和 `modelName` 一起提交给 ima 的自定义模型服务。** 原始函数在隔离运行中构造的生产默认目标是：
+本仓库记录 2026-11-03 至 2026-11-04 对 macOS 版 ima 本地客户端的检查。**所见客户端的保存流程会把用户填写的 `apiKey`、`apiUri` 和 `modelName` 一起提交给 ima 的自定义模型服务。** 原始函数的断网复现构造了以下目标；随后真实客户端的网络事件也确认向该地址发送 POST：
 
 ```http
 POST https://ima.qq.com/cgi-bin/customize_models/add_model
@@ -18,18 +18,27 @@ POST https://ima.qq.com/cgi-bin/customize_models/add_model
 }
 ```
 
-上面的 Key 是公开测试标记。**这份结果来自原始客户端函数的断网复现，在 `fetch` 处截获；不是一次真实、已认证的线上请求抓包。** 当前没有证明密钥泄露、被滥用、长期明文存储或服务端权限隔离失效的证据。
+上面的 Key 是公开测试标记。**上面的 JSON 是最初的断网复现，不能当作抓包原文。** 随后的真实客户端采集取得了独立的[线上请求体](evidence/network/live-add-model-request.json)和[响应体](evidence/network/live-add-model-response.json)：请求中的假 Key 与 UI 输入相同，模型名原样保留 `/`，默认 token 参数实际提交为 `172 / 32`。本次没有使用真实供应商 Key，也没有审计服务端存储及访问控制。
+
+2026-11-04 的[原始字节解码证据](evidence/observations/live-wire-proof.json)确认：该 POST 的 HTTP/2 DATA 为 **207 字节**，HTTP 状态 **200**，响应 DATA 为 **61 字节**，内容为：
+
+```json
+{"code":100001,"msg":"校验失败，请检查模型配置"}
+```
+
+**另一个实际观察：同一次失败请求的完整 `param` 还出现在发往 `https://galileotelemetry.tencent.com/collect` 的日志中，假 Key 没有被遮蔽。** 该 `param` 与上面的真实请求体逐字节一致。[遥测日志脱敏摘录](evidence/observations/telemetry-log-excerpt.json) · [采集、解码及省略说明](docs/network-capture.md)
 
 ## 结论与证据等级
 
 | 编号 | 结论 | 证据与边界 |
 | --- | --- | --- |
-| C1 | 客户端将 Key 放入 ima 自定义模型服务的保存请求；生产默认目标为上述 URL | 当前安装脚本原文 + 原函数断网执行；尚无真实保存请求抓包 |
-| C2 | 所见前端没有过滤模型名中的 `/`，原样进入保存逻辑 | 输入函数和表单逻辑原文；带 `/`、不带 `/`、多级 `/` 的本地复现 |
+| C1 | 客户端将 Key 放入 ima 自定义模型服务的保存请求 | 安装脚本原文 + 原函数断网执行 + 真实 TLS 应用字节中的 JSON |
+| C2 | 所见前端没有过滤模型名中的 `/`，原样发出 | 输入函数和表单逻辑原文 + 本地输入复现 + 真实请求体中的完整模型名 |
 | C3 | 本机 Magpie 接受 `group/deepseek-v4-1-flash` | 一次真实本机调用返回 HTTP 200 和 `OK`；不能单独证明 ima 云端接受该名称 |
 | C4 | 云端校验无法使用用户电脑的 localhost 是当前失败的一种合理解释 | 客户端架构 + 用户报错截图；未观测服务端具体失败分支，不能认定唯一根因 |
 | C5 | 所见聊天代码把问题和模型 ID 发往 ima assistant 服务；官方也说明 AI 内容上云 | 客户端片段 + 官方隐私指引；未观测 ima 服务器向模型供应商发出的流量 |
-| C6 | 真实客户端网络捕获 | [状态与方法](docs/network-capture.md)：尚未取得；已尝试打开内置网络日志，后续受 Mac 锁屏阻止 |
+| C6 | 真实客户端保存请求和响应已取得 | NetLog 元数据 + SSL 应用字节 + HTTP/2 DATA 帧 + JSON；不是网卡 PCAP |
+| C7 | 本次失败请求的原始参数进入额外的日志/遥测接口 | 相同假 Key 及完整 `param` 出现在 `galileotelemetry.tencent.com/collect` 的实际请求体中；其他日志和身份字段已省略 |
 
 完整映射见 [claims.json](evidence/claims.json)。
 
@@ -41,7 +50,7 @@ POST https://ima.qq.com/cgi-bin/customize_models/add_model
 npm test
 ```
 
-它会检查公开文件及片段的 SHA-256，并用仓库中的原始片段重新构造 Request，与已提交的[复现回执](evidence/observations/offline-reproduction.json)逐项比较。复现不联网、不读取账号、不使用真实 Key、不保存应用配置。
+它会检查公开文件及片段的 SHA-256，从公开 DATA 帧重建线上请求/响应并核对遥测 `param`，再用原始片段重新构造离线 Request，与[离线回执](evidence/observations/offline-reproduction.json)比较。验证不联网、不读取账号、不使用真实 Key、不保存应用配置。
 
 要看完整构造结果：
 
@@ -86,7 +95,7 @@ python3 scripts/extract_sources.py \
 
 ## 对安全含义的准确表述
 
-该实现意味着用户把所填 Key 交给 ima 服务端处理，增加了需要信任的主体。服务器如何加密保存、保留多久、如何限制访问和删除，目前未核实。请求对象中的字符串不能证明线上未使用 TLS，也不能证明服务器明文落盘。
+本次观察确认所填字段交给 ima 服务处理，而且失败请求参数进入另一条日志处理链路。这使日志脱敏、日志访问权限和保留策略也成为 Key 安全边界的一部分。是否保存、如何加密、谁能访问及何时删除，目前未核实。采集的是 HTTPS/TLS 内部应用字节，**不能称为公网明文传输，也不能据此断言服务器明文落盘或发生真实密钥泄露**。
 
 如果填写的是本机网关占位 token，交出的就是该 token；本仓库没有读取或公开 Magpie 保存的模型供应商密钥。即使前端显示保存失败，也不能据此推定配置从未进入请求。
 

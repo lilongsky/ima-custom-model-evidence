@@ -1,0 +1,413 @@
+{
+  "schema_version": 1,
+  "evidence_type": "real_native_client_netlog_allowlisted_metadata",
+  "input": {
+    "sha256": "d34d305b5abe297c657ed6401f9fab84b3f0c9ebfb36c4c500e9a5033427aa84",
+    "byte_length": 6298844,
+    "event_count": 19547,
+    "log_format_version": 1,
+    "capture_mode": "Everything",
+    "time_tick_offset_ms": 1793508402923,
+    "first_event_time_utc": "2026-11-04T02:08:14.470+00:00",
+    "last_event_time_utc": "2026-11-04T02:34:07.698+00:00",
+    "client_name": "ima.copilot",
+    "client_version": "150.0.7871.5493"
+  },
+  "selection": {
+    "exact_url": "https://galileotelemetry.tencent.com/collect",
+    "method": "POST",
+    "url_request_source_ids": [
+      8313
+    ],
+    "bound_job_source_ids": [
+      8315
+    ],
+    "http2_streams": [
+      {
+        "session_source_id": 8194,
+        "stream_id": 11
+      }
+    ]
+  },
+  "redaction": {
+    "method": "allowlist; event_index is zero-based in original events array",
+    "headers_kept": "method, authority, scheme, target path, HTTP status, JSON content type, byte length, date",
+    "request_body_published": false,
+    "response_body_published": false,
+    "raw_log_published": false,
+    "other_omissions": [
+      "all non-target requests",
+      "account and authorization headers",
+      "cookies and tickets",
+      "proxy and local network details",
+      "client command line",
+      "all socket bytes and payload bodies"
+    ]
+  },
+  "limits": [
+    "This is a filtered event log, not an Ethernet/IP packet capture.",
+    "The original private log is required to independently verify this extraction.",
+    "Hashes commit to bytes; they do not authenticate collection time or publisher.",
+    "HTTP 200 alone does not mean application validation succeeded.",
+    "No API key value or response JSON is recovered by this metadata extractor."
+  ],
+  "events": [
+    {
+      "event_index": 11085,
+      "type": "CORS_REQUEST",
+      "phase": "PHASE_BEGIN",
+      "time_ticks_ms": "250722206",
+      "derived_time_utc": "2026-11-04T02:25:25.129+00:00",
+      "source": {
+        "id": 8313,
+        "type": "URL_REQUEST",
+        "start_time_ticks_ms": "250722206"
+      },
+      "params": {
+        "url": "https://galileotelemetry.tencent.com/collect"
+      },
+      "omitted_param_names": [
+        "cors_preflight_policy",
+        "is_revalidating",
+        "request_headers"
+      ]
+    },
+    {
+      "event_index": 11087,
+      "type": "REQUEST_ALIVE",
+      "phase": "PHASE_BEGIN",
+      "time_ticks_ms": "250722206",
+      "derived_time_utc": "2026-11-04T02:25:25.129+00:00",
+      "source": {
+        "id": 8313,
+        "type": "URL_REQUEST",
+        "start_time_ticks_ms": "250722206"
+      },
+      "params": {
+        "url": "https://galileotelemetry.tencent.com/collect"
+      },
+      "omitted_param_names": [
+        "priority",
+        "traffic_annotation"
+      ]
+    },
+    {
+      "event_index": 11091,
+      "type": "URL_REQUEST_START_JOB",
+      "phase": "PHASE_BEGIN",
+      "time_ticks_ms": "250722206",
+      "derived_time_utc": "2026-11-04T02:25:25.129+00:00",
+      "source": {
+        "id": 8313,
+        "type": "URL_REQUEST",
+        "start_time_ticks_ms": "250722206"
+      },
+      "params": {
+        "initiator": "chrome-extension://khmgfdkajnigikondkcjbaflpjflfiee",
+        "method": "POST",
+        "url": "https://galileotelemetry.tencent.com/collect"
+      },
+      "omitted_param_names": [
+        "load_flags",
+        "network_isolation_key",
+        "request_type",
+        "site_for_cookies",
+        "upload_id"
+      ]
+    },
+    {
+      "event_index": 11139,
+      "type": "HTTP_STREAM_REQUEST_BOUND_TO_JOB",
+      "phase": "PHASE_NONE",
+      "time_ticks_ms": "250722207",
+      "derived_time_utc": "2026-11-04T02:25:25.130+00:00",
+      "source": {
+        "id": 8313,
+        "type": "URL_REQUEST",
+        "start_time_ticks_ms": "250722206"
+      },
+      "params": {
+        "source_dependency": {
+          "id": 8315,
+          "type": "HTTP_STREAM_JOB"
+        }
+      },
+      "omitted_param_names": []
+    },
+    {
+      "event_index": 11148,
+      "type": "UPLOAD_DATA_STREAM_INIT",
+      "phase": "PHASE_BEGIN",
+      "time_ticks_ms": "250722207",
+      "derived_time_utc": "2026-11-04T02:25:25.130+00:00",
+      "source": {
+        "id": 8313,
+        "type": "URL_REQUEST",
+        "start_time_ticks_ms": "250722206"
+      },
+      "params": {},
+      "omitted_param_names": []
+    },
+    {
+      "event_index": 11149,
+      "type": "UPLOAD_DATA_STREAM_INIT",
+      "phase": "PHASE_END",
+      "time_ticks_ms": "250722207",
+      "derived_time_utc": "2026-11-04T02:25:25.130+00:00",
+      "source": {
+        "id": 8313,
+        "type": "URL_REQUEST",
+        "start_time_ticks_ms": "250722206"
+      },
+      "params": {
+        "is_chunked": false,
+        "net_error": 0,
+        "total_size": 7038
+      },
+      "omitted_param_names": []
+    },
+    {
+      "event_index": 11150,
+      "type": "HTTP_TRANSACTION_SEND_REQUEST",
+      "phase": "PHASE_BEGIN",
+      "time_ticks_ms": "250722207",
+      "derived_time_utc": "2026-11-04T02:25:25.130+00:00",
+      "source": {
+        "id": 8313,
+        "type": "URL_REQUEST",
+        "start_time_ticks_ms": "250722206"
+      },
+      "params": {},
+      "omitted_param_names": []
+    },
+    {
+      "event_index": 11151,
+      "type": "HTTP_TRANSACTION_HTTP2_SEND_REQUEST_HEADERS",
+      "phase": "PHASE_NONE",
+      "time_ticks_ms": "250722207",
+      "derived_time_utc": "2026-11-04T02:25:25.130+00:00",
+      "source": {
+        "id": 8313,
+        "type": "URL_REQUEST",
+        "start_time_ticks_ms": "250722206"
+      },
+      "params": {
+        "headers": [
+          ":method: POST",
+          ":authority: galileotelemetry.tencent.com",
+          ":scheme: https",
+          ":path: /collect",
+          "content-length: 7038"
+        ]
+      },
+      "omitted_param_names": [],
+      "omitted_header_count": 14
+    },
+    {
+      "event_index": 11153,
+      "type": "HTTP2_SESSION_SEND_HEADERS",
+      "phase": "PHASE_NONE",
+      "time_ticks_ms": "250722207",
+      "derived_time_utc": "2026-11-04T02:25:25.130+00:00",
+      "source": {
+        "id": 8194,
+        "type": "HTTP2_SESSION",
+        "start_time_ticks_ms": "250180296"
+      },
+      "params": {
+        "fin": false,
+        "headers": [
+          ":method: POST",
+          ":authority: galileotelemetry.tencent.com",
+          ":scheme: https",
+          ":path: /collect",
+          "content-length: 7038"
+        ],
+        "source_dependency": {
+          "id": 8315,
+          "type": "HTTP_STREAM_JOB"
+        },
+        "stream_id": 11
+      },
+      "omitted_param_names": [
+        "exclusive",
+        "has_priority",
+        "parent_stream_id",
+        "weight"
+      ],
+      "omitted_header_count": 14
+    },
+    {
+      "event_index": 11160,
+      "type": "HTTP2_SESSION_SEND_DATA",
+      "phase": "PHASE_NONE",
+      "time_ticks_ms": "250722208",
+      "derived_time_utc": "2026-11-04T02:25:25.131+00:00",
+      "source": {
+        "id": 8194,
+        "type": "HTTP2_SESSION",
+        "start_time_ticks_ms": "250180296"
+      },
+      "params": {
+        "fin": true,
+        "size": 7038,
+        "stream_id": 11
+      },
+      "omitted_param_names": []
+    },
+    {
+      "event_index": 11165,
+      "type": "HTTP_TRANSACTION_SEND_REQUEST",
+      "phase": "PHASE_END",
+      "time_ticks_ms": "250722208",
+      "derived_time_utc": "2026-11-04T02:25:25.131+00:00",
+      "source": {
+        "id": 8313,
+        "type": "URL_REQUEST",
+        "start_time_ticks_ms": "250722206"
+      },
+      "params": {},
+      "omitted_param_names": []
+    },
+    {
+      "event_index": 11182,
+      "type": "HTTP2_SESSION_RECV_HEADERS",
+      "phase": "PHASE_NONE",
+      "time_ticks_ms": "250722229",
+      "derived_time_utc": "2026-11-04T02:25:25.152+00:00",
+      "source": {
+        "id": 8194,
+        "type": "HTTP2_SESSION",
+        "start_time_ticks_ms": "250180296"
+      },
+      "params": {
+        "fin": false,
+        "headers": [
+          ":status: 200",
+          "date: Wed, 04 Nov 2026 02:25:25 GMT",
+          "content-length: 21"
+        ],
+        "stream_id": 11
+      },
+      "omitted_param_names": [],
+      "omitted_header_count": 7
+    },
+    {
+      "event_index": 11183,
+      "type": "HTTP_TRANSACTION_READ_RESPONSE_HEADERS",
+      "phase": "PHASE_NONE",
+      "time_ticks_ms": "250722229",
+      "derived_time_utc": "2026-11-04T02:25:25.152+00:00",
+      "source": {
+        "id": 8313,
+        "type": "URL_REQUEST",
+        "start_time_ticks_ms": "250722206"
+      },
+      "params": {
+        "headers": [
+          "HTTP/1.1 200",
+          "date: Wed, 04 Nov 2026 02:25:25 GMT",
+          "content-length: 21"
+        ]
+      },
+      "omitted_param_names": [],
+      "omitted_header_count": 7
+    },
+    {
+      "event_index": 11191,
+      "type": "URL_REQUEST_START_JOB",
+      "phase": "PHASE_END",
+      "time_ticks_ms": "250722229",
+      "derived_time_utc": "2026-11-04T02:25:25.152+00:00",
+      "source": {
+        "id": 8313,
+        "type": "URL_REQUEST",
+        "start_time_ticks_ms": "250722206"
+      },
+      "params": {},
+      "omitted_param_names": []
+    },
+    {
+      "event_index": 11195,
+      "type": "HTTP2_SESSION_RECV_DATA",
+      "phase": "PHASE_NONE",
+      "time_ticks_ms": "250722230",
+      "derived_time_utc": "2026-11-04T02:25:25.153+00:00",
+      "source": {
+        "id": 8194,
+        "type": "HTTP2_SESSION",
+        "start_time_ticks_ms": "250180296"
+      },
+      "params": {
+        "fin": false,
+        "size": 21,
+        "stream_id": 11
+      },
+      "omitted_param_names": []
+    },
+    {
+      "event_index": 11202,
+      "type": "HTTP2_SESSION_RECV_DATA",
+      "phase": "PHASE_NONE",
+      "time_ticks_ms": "250722230",
+      "derived_time_utc": "2026-11-04T02:25:25.153+00:00",
+      "source": {
+        "id": 8194,
+        "type": "HTTP2_SESSION",
+        "start_time_ticks_ms": "250180296"
+      },
+      "params": {
+        "fin": true,
+        "size": 0,
+        "stream_id": 11
+      },
+      "omitted_param_names": []
+    },
+    {
+      "event_index": 11218,
+      "type": "URL_REQUEST_JOB_FILTERED_BYTES_READ",
+      "phase": "PHASE_NONE",
+      "time_ticks_ms": "250722230",
+      "derived_time_utc": "2026-11-04T02:25:25.153+00:00",
+      "source": {
+        "id": 8313,
+        "type": "URL_REQUEST",
+        "start_time_ticks_ms": "250722206"
+      },
+      "params": {
+        "byte_count": 21
+      },
+      "omitted_param_names": [
+        "bytes"
+      ]
+    },
+    {
+      "event_index": 11221,
+      "type": "CORS_REQUEST",
+      "phase": "PHASE_END",
+      "time_ticks_ms": "250722231",
+      "derived_time_utc": "2026-11-04T02:25:25.154+00:00",
+      "source": {
+        "id": 8313,
+        "type": "URL_REQUEST",
+        "start_time_ticks_ms": "250722206"
+      },
+      "params": {},
+      "omitted_param_names": []
+    },
+    {
+      "event_index": 11222,
+      "type": "REQUEST_ALIVE",
+      "phase": "PHASE_END",
+      "time_ticks_ms": "250722232",
+      "derived_time_utc": "2026-11-04T02:25:25.155+00:00",
+      "source": {
+        "id": 8313,
+        "type": "URL_REQUEST",
+        "start_time_ticks_ms": "250722206"
+      },
+      "params": {},
+      "omitted_param_names": []
+    }
+  ]
+}

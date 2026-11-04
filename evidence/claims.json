@@ -3,8 +3,8 @@
   "claims": [
     {
       "id": "C1",
-      "statement": "The inspected client constructs an ima add_model request containing the supplied API key.",
-      "status": "observed in source and controlled local execution",
+      "statement": "The real native client sent the supplied synthetic API key in a JSON POST to the ima add_model service.",
+      "status": "observed in source, controlled local execution, and real native TLS application bytes",
       "fragment_ids": [
         "model_presenter",
         "model_http_service",
@@ -18,17 +18,21 @@
       ],
       "local_evidence": [
         "evidence/source-manifest.json",
-        "evidence/observations/offline-reproduction.json"
+        "evidence/observations/offline-reproduction.json",
+        "evidence/observations/native-netlog-metadata.json",
+        "docs/network-capture.md",
+        "evidence/network/live-add-model-request.json",
+        "evidence/observations/live-wire-proof.json"
       ],
       "limits": [
-        "No live authenticated save-request capture.",
+        "The live experiment uses a synthetic no-permission marker; does not establish a real-key breach.",
         "Does not establish server storage, retention, access control, or a breach."
       ]
     },
     {
       "id": "C2",
       "statement": "The inspected frontend preserves slash-containing model names.",
-      "status": "observed in source and controlled local execution",
+      "status": "observed in source, controlled local execution, and real request JSON",
       "fragment_ids": [
         "input_hook",
         "model_presenter",
@@ -36,7 +40,8 @@
       ],
       "local_evidence": [
         "evidence/source-manifest.json",
-        "evidence/observations/offline-reproduction.json"
+        "evidence/observations/offline-reproduction.json",
+        "evidence/network/live-add-model-request.json"
       ],
       "limits": [
         "No public-endpoint backend A/B test; separate server name rules remain possible."
@@ -66,7 +71,10 @@
       "local_evidence": [
         "evidence/source-manifest.json",
         "evidence/attachments.json",
-        "evidence/screenshots/user-supplied-save-error.png"
+        "evidence/screenshots/user-supplied-save-error.png",
+        "evidence/observations/native-netlog-metadata.json",
+        "evidence/observations/native-save-ui-observation.json",
+        "evidence/network/live-add-model-response.json"
       ],
       "limits": [
         "Server may reject loopback, fail to connect, impose protocol/name rules, or take another branch.",
@@ -99,14 +107,41 @@
     },
     {
       "id": "C6",
-      "statement": "A real native-client save-request capture is not yet available.",
-      "status": "not obtained",
+      "statement": "Real native-client add_model request and response JSON were reconstructed from captured HTTP/2 DATA frames.",
+      "status": "observed real native TLS application data",
       "fragment_ids": [],
       "local_evidence": [
-        "docs/network-capture.md"
+        "docs/network-capture.md",
+        "evidence/observations/native-netlog-metadata.json",
+        "evidence/observations/native-save-ui-observation.json",
+        "scripts/extract_netlog.py",
+        "evidence/observations/live-wire-proof.json",
+        "evidence/observations/native-netlog-raw-mode-metadata.json",
+        "evidence/network/live-add-model-request.json",
+        "evidence/network/live-add-model-response.json",
+        "scripts/extract_live_capture.py"
       ],
       "limits": [
-        "DevTools blocked on the settings page; native UI capture preparation stopped at Mac lock before logging or form submission."
+        "The initial Default-mode log has metadata only; the separately authorized Everything-mode log supplies DATA bytes.",
+        "Original logs stay private; published DATA frames independently reconstruct the benign request/response but cannot independently authenticate original log provenance.",
+        "NetLog is client network-stack logging, not a physical network packet capture; HTTPS was not disabled."
+      ]
+    },
+    {
+      "id": "C7",
+      "statement": "In the observed failed-save flow, an outgoing collect telemetry body contained the same complete request parameter, including the synthetic API key.",
+      "status": "observed in real outgoing TLS application data",
+      "fragment_ids": [],
+      "local_evidence": [
+        "evidence/observations/telemetry-log-excerpt.json",
+        "evidence/observations/telemetry-netlog-metadata.json",
+        "evidence/network/live-add-model-request.json",
+        "scripts/extract_live_capture.py"
+      ],
+      "limits": [
+        "One observed synthetic-key failure flow; not a claim about every configuration or version.",
+        "Full telemetry payload stays private; the public excerpt omits account identifiers, headers, trace values and other messages.",
+        "Does not establish telemetry retention, access control, or a real-key breach."
       ]
     }
   ]

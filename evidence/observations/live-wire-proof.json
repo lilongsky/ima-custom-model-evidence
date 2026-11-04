@@ -1,0 +1,99 @@
+{
+  "schema_version": 1,
+  "evidence_type": "real_native_netlog_decoded_http2_data_frames",
+  "input": {
+    "sha256": "d34d305b5abe297c657ed6401f9fab84b3f0c9ebfb36c4c500e9a5033427aa84",
+    "byte_length": 6298844,
+    "event_count": 19547,
+    "log_format_version": 1,
+    "capture_mode": "Everything",
+    "time_tick_offset_ms": 1793508402923,
+    "first_event_time_utc": "2026-11-04T02:08:14.470+00:00",
+    "last_event_time_utc": "2026-11-04T02:34:07.698+00:00",
+    "client_name": "ima.copilot",
+    "client_version": "150.0.7871.5493"
+  },
+  "endpoint": "https://ima.qq.com/cgi-bin/customize_models/add_model",
+  "url_request_source_id": 8301,
+  "binding": {
+    "session_source_id": 8311,
+    "stream_id": 1,
+    "socket_source_id": 8310,
+    "session_initialized_event_index": 10992
+  },
+  "request": {
+    "body_path": "evidence/network/live-add-model-request.json",
+    "byte_length": 207,
+    "sha256": "fc0dfe2b430ac8cf331b38accd871b0a808cf192b8123f9e7405b13c595d9a3f",
+    "frames": [
+      {
+        "stream_id": 1,
+        "flags": 1,
+        "frame_byte_length": 216,
+        "frame_sha256": "4e1b3a71f98fa5ec8396d465bd6ba7e01dff16f13d62d0e3e745e87238010d6b",
+        "frame_base64": "AADPAAEAAAABeyJtb2RlbF9pbmZvIjp7ImFwaV91cmkiOiJodHRwOi8vMTI3LjAuMC4xOjM0MjUvdjEvY2hhdC9jb21wbGV0aW9ucyIsImFwaV9rZXkiOiJJTUFfUFVCTElDX0VWSURFTkNFXzIwMjYxMTA0XzExZDRhMzQyIiwibW9kZWxfbmFtZSI6Imdyb3VwL2RlZXBzZWVrLXY0LTEtZmxhc2giLCJtYXhfaW5wdXRfdG9rZW5zIjoxNzIsIm1heF9vdXRwdXRfdG9rZW5zIjozMn19",
+        "payload_byte_length": 207,
+        "payload_sha256": "fc0dfe2b430ac8cf331b38accd871b0a808cf192b8123f9e7405b13c595d9a3f",
+        "input_segments": [
+          {
+            "event_index": 11021,
+            "decoded_event_byte_offset": 0,
+            "byte_length": 216
+          }
+        ]
+      }
+    ]
+  },
+  "response": {
+    "body_path": "evidence/network/live-add-model-response.json",
+    "byte_length": 61,
+    "sha256": "321bd653687f42113cd5a271c1d9769d1b576e0ec2057e997b4f5e80b05b05ac",
+    "frames": [
+      {
+        "stream_id": 1,
+        "flags": 0,
+        "frame_byte_length": 70,
+        "frame_sha256": "667f0c08d48b39fc33ac123de095af8327490f9661012e2bc03352e4ebf13aa1",
+        "frame_base64": "AAA9AAAAAAABeyJjb2RlIjoxMDAwMDEsICJtc2ciOiLmoKHpqozlpLHotKXvvIzor7fmo4Dmn6XmqKHlnovphY3nva4ifQ==",
+        "payload_byte_length": 61,
+        "payload_sha256": "321bd653687f42113cd5a271c1d9769d1b576e0ec2057e997b4f5e80b05b05ac",
+        "input_segments": [
+          {
+            "event_index": 11043,
+            "decoded_event_byte_offset": 363,
+            "byte_length": 70
+          }
+        ]
+      },
+      {
+        "stream_id": 1,
+        "flags": 1,
+        "frame_byte_length": 9,
+        "frame_sha256": "fac0b0e581ee814067621f460158e73160a7301fff321b7fb78d259d227c9c07",
+        "frame_base64": "AAAAAAEAAAAB",
+        "payload_byte_length": 0,
+        "payload_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "input_segments": [
+          {
+            "event_index": 11080,
+            "decoded_event_byte_offset": 0,
+            "byte_length": 9
+          }
+        ]
+      }
+    ]
+  },
+  "decoding": [
+    "Decode base64 in selected SSL_SOCKET_BYTES events.",
+    "Concatenate by direction on the explicitly bound socket.",
+    "Skip the HTTP/2 client preface when present; parse 9-byte frame headers.",
+    "Select DATA (type 0) for the bound stream; remove padding if present.",
+    "Concatenate payloads through END_STREAM; decode UTF-8 JSON."
+  ],
+  "publication": "Only validated synthetic request and code/msg response DATA frames are published. No HPACK header blocks, credentials or other streams.",
+  "limits": [
+    "These are TLS application bytes observed inside the client, not plaintext on the physical network.",
+    "The private original log is required to verify event provenance; published frames independently reproduce the published bodies.",
+    "No conclusion about server storage or server-to-provider traffic."
+  ]
+}

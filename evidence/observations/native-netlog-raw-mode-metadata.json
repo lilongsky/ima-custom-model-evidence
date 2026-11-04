@@ -1,0 +1,436 @@
+{
+  "schema_version": 1,
+  "evidence_type": "real_native_client_netlog_allowlisted_metadata",
+  "input": {
+    "sha256": "d34d305b5abe297c657ed6401f9fab84b3f0c9ebfb36c4c500e9a5033427aa84",
+    "byte_length": 6298844,
+    "event_count": 19547,
+    "log_format_version": 1,
+    "capture_mode": "Everything",
+    "time_tick_offset_ms": 1793508402923,
+    "first_event_time_utc": "2026-11-04T02:08:14.470+00:00",
+    "last_event_time_utc": "2026-11-04T02:34:07.698+00:00",
+    "client_name": "ima.copilot",
+    "client_version": "150.0.7871.5493"
+  },
+  "selection": {
+    "exact_url": "https://ima.qq.com/cgi-bin/customize_models/add_model",
+    "method": "POST",
+    "url_request_source_ids": [
+      8301
+    ],
+    "bound_job_source_ids": [
+      8303
+    ],
+    "http2_streams": [
+      {
+        "session_source_id": 8311,
+        "stream_id": 1
+      }
+    ]
+  },
+  "redaction": {
+    "method": "allowlist; event_index is zero-based in original events array",
+    "headers_kept": "method, authority, scheme, target path, HTTP status, JSON content type, byte length, date",
+    "request_body_published": false,
+    "response_body_published": false,
+    "raw_log_published": false,
+    "other_omissions": [
+      "all non-target requests",
+      "account and authorization headers",
+      "cookies and tickets",
+      "proxy and local network details",
+      "client command line",
+      "all socket bytes and payload bodies"
+    ]
+  },
+  "limits": [
+    "This is a filtered event log, not an Ethernet/IP packet capture.",
+    "The original private log is required to independently verify this extraction.",
+    "Hashes commit to bytes; they do not authenticate collection time or publisher.",
+    "HTTP 200 alone does not mean application validation succeeded.",
+    "No API key value or response JSON is recovered by this metadata extractor."
+  ],
+  "events": [
+    {
+      "event_index": 10884,
+      "type": "CORS_REQUEST",
+      "phase": "PHASE_BEGIN",
+      "time_ticks_ms": "250720724",
+      "derived_time_utc": "2026-11-04T02:25:23.647+00:00",
+      "source": {
+        "id": 8301,
+        "type": "URL_REQUEST",
+        "start_time_ticks_ms": "250720724"
+      },
+      "params": {
+        "url": "https://ima.qq.com/cgi-bin/customize_models/add_model"
+      },
+      "omitted_param_names": [
+        "cors_preflight_policy",
+        "is_revalidating",
+        "request_headers"
+      ]
+    },
+    {
+      "event_index": 10886,
+      "type": "REQUEST_ALIVE",
+      "phase": "PHASE_BEGIN",
+      "time_ticks_ms": "250720725",
+      "derived_time_utc": "2026-11-04T02:25:23.648+00:00",
+      "source": {
+        "id": 8301,
+        "type": "URL_REQUEST",
+        "start_time_ticks_ms": "250720724"
+      },
+      "params": {
+        "url": "https://ima.qq.com/cgi-bin/customize_models/add_model"
+      },
+      "omitted_param_names": [
+        "priority",
+        "traffic_annotation"
+      ]
+    },
+    {
+      "event_index": 10890,
+      "type": "URL_REQUEST_START_JOB",
+      "phase": "PHASE_BEGIN",
+      "time_ticks_ms": "250720726",
+      "derived_time_utc": "2026-11-04T02:25:23.649+00:00",
+      "source": {
+        "id": 8301,
+        "type": "URL_REQUEST",
+        "start_time_ticks_ms": "250720724"
+      },
+      "params": {
+        "initiator": "chrome-extension://khmgfdkajnigikondkcjbaflpjflfiee",
+        "method": "POST",
+        "url": "https://ima.qq.com/cgi-bin/customize_models/add_model"
+      },
+      "omitted_param_names": [
+        "load_flags",
+        "network_isolation_key",
+        "request_type",
+        "site_for_cookies",
+        "upload_id"
+      ]
+    },
+    {
+      "event_index": 10996,
+      "type": "HTTP2_SESSION_POOL_IMPORTED_SESSION_FROM_SOCKET",
+      "phase": "PHASE_NONE",
+      "time_ticks_ms": "250720855",
+      "derived_time_utc": "2026-11-04T02:25:23.778+00:00",
+      "source": {
+        "id": 8303,
+        "type": "HTTP_STREAM_JOB",
+        "start_time_ticks_ms": "250720729"
+      },
+      "params": {
+        "source_dependency": {
+          "id": 8311,
+          "type": "HTTP2_SESSION"
+        }
+      },
+      "omitted_param_names": []
+    },
+    {
+      "event_index": 10999,
+      "type": "HTTP_STREAM_REQUEST_BOUND_TO_JOB",
+      "phase": "PHASE_NONE",
+      "time_ticks_ms": "250720855",
+      "derived_time_utc": "2026-11-04T02:25:23.778+00:00",
+      "source": {
+        "id": 8301,
+        "type": "URL_REQUEST",
+        "start_time_ticks_ms": "250720724"
+      },
+      "params": {
+        "source_dependency": {
+          "id": 8303,
+          "type": "HTTP_STREAM_JOB"
+        }
+      },
+      "omitted_param_names": []
+    },
+    {
+      "event_index": 11008,
+      "type": "UPLOAD_DATA_STREAM_INIT",
+      "phase": "PHASE_BEGIN",
+      "time_ticks_ms": "250720856",
+      "derived_time_utc": "2026-11-04T02:25:23.779+00:00",
+      "source": {
+        "id": 8301,
+        "type": "URL_REQUEST",
+        "start_time_ticks_ms": "250720724"
+      },
+      "params": {},
+      "omitted_param_names": []
+    },
+    {
+      "event_index": 11009,
+      "type": "UPLOAD_DATA_STREAM_INIT",
+      "phase": "PHASE_END",
+      "time_ticks_ms": "250720856",
+      "derived_time_utc": "2026-11-04T02:25:23.779+00:00",
+      "source": {
+        "id": 8301,
+        "type": "URL_REQUEST",
+        "start_time_ticks_ms": "250720724"
+      },
+      "params": {
+        "is_chunked": false,
+        "net_error": 0,
+        "total_size": 207
+      },
+      "omitted_param_names": []
+    },
+    {
+      "event_index": 11010,
+      "type": "HTTP_TRANSACTION_SEND_REQUEST",
+      "phase": "PHASE_BEGIN",
+      "time_ticks_ms": "250720856",
+      "derived_time_utc": "2026-11-04T02:25:23.779+00:00",
+      "source": {
+        "id": 8301,
+        "type": "URL_REQUEST",
+        "start_time_ticks_ms": "250720724"
+      },
+      "params": {},
+      "omitted_param_names": []
+    },
+    {
+      "event_index": 11011,
+      "type": "HTTP_TRANSACTION_HTTP2_SEND_REQUEST_HEADERS",
+      "phase": "PHASE_NONE",
+      "time_ticks_ms": "250720856",
+      "derived_time_utc": "2026-11-04T02:25:23.779+00:00",
+      "source": {
+        "id": 8301,
+        "type": "URL_REQUEST",
+        "start_time_ticks_ms": "250720724"
+      },
+      "params": {
+        "headers": [
+          ":method: POST",
+          ":authority: ima.qq.com",
+          ":scheme: https",
+          ":path: /cgi-bin/customize_models/add_model",
+          "content-length: 207",
+          "content-type: application/json"
+        ]
+      },
+      "omitted_param_names": [],
+      "omitted_header_count": 19
+    },
+    {
+      "event_index": 11012,
+      "type": "HTTP2_SESSION_SEND_HEADERS",
+      "phase": "PHASE_NONE",
+      "time_ticks_ms": "250720856",
+      "derived_time_utc": "2026-11-04T02:25:23.779+00:00",
+      "source": {
+        "id": 8311,
+        "type": "HTTP2_SESSION",
+        "start_time_ticks_ms": "250720855"
+      },
+      "params": {
+        "fin": false,
+        "headers": [
+          ":method: POST",
+          ":authority: ima.qq.com",
+          ":scheme: https",
+          ":path: /cgi-bin/customize_models/add_model",
+          "content-length: 207",
+          "content-type: application/json"
+        ],
+        "source_dependency": {
+          "id": 8303,
+          "type": "HTTP_STREAM_JOB"
+        },
+        "stream_id": 1
+      },
+      "omitted_param_names": [
+        "exclusive",
+        "has_priority",
+        "parent_stream_id",
+        "weight"
+      ],
+      "omitted_header_count": 19
+    },
+    {
+      "event_index": 11019,
+      "type": "HTTP2_SESSION_SEND_DATA",
+      "phase": "PHASE_NONE",
+      "time_ticks_ms": "250720857",
+      "derived_time_utc": "2026-11-04T02:25:23.780+00:00",
+      "source": {
+        "id": 8311,
+        "type": "HTTP2_SESSION",
+        "start_time_ticks_ms": "250720855"
+      },
+      "params": {
+        "fin": true,
+        "size": 207,
+        "stream_id": 1
+      },
+      "omitted_param_names": []
+    },
+    {
+      "event_index": 11022,
+      "type": "HTTP_TRANSACTION_SEND_REQUEST",
+      "phase": "PHASE_END",
+      "time_ticks_ms": "250720857",
+      "derived_time_utc": "2026-11-04T02:25:23.780+00:00",
+      "source": {
+        "id": 8301,
+        "type": "URL_REQUEST",
+        "start_time_ticks_ms": "250720724"
+      },
+      "params": {},
+      "omitted_param_names": []
+    },
+    {
+      "event_index": 11044,
+      "type": "HTTP2_SESSION_RECV_HEADERS",
+      "phase": "PHASE_NONE",
+      "time_ticks_ms": "250720956",
+      "derived_time_utc": "2026-11-04T02:25:23.879+00:00",
+      "source": {
+        "id": 8311,
+        "type": "HTTP2_SESSION",
+        "start_time_ticks_ms": "250720855"
+      },
+      "params": {
+        "fin": false,
+        "headers": [
+          ":status: 200",
+          "date: Wed, 04 Nov 2026 02:25:23 GMT",
+          "content-type: application/json",
+          "content-length: 61"
+        ],
+        "stream_id": 1
+      },
+      "omitted_param_names": [],
+      "omitted_header_count": 7
+    },
+    {
+      "event_index": 11045,
+      "type": "HTTP_TRANSACTION_READ_RESPONSE_HEADERS",
+      "phase": "PHASE_NONE",
+      "time_ticks_ms": "250720956",
+      "derived_time_utc": "2026-11-04T02:25:23.879+00:00",
+      "source": {
+        "id": 8301,
+        "type": "URL_REQUEST",
+        "start_time_ticks_ms": "250720724"
+      },
+      "params": {
+        "headers": [
+          "HTTP/1.1 200",
+          "date: Wed, 04 Nov 2026 02:25:23 GMT",
+          "content-type: application/json",
+          "content-length: 61"
+        ]
+      },
+      "omitted_param_names": [],
+      "omitted_header_count": 7
+    },
+    {
+      "event_index": 11053,
+      "type": "URL_REQUEST_START_JOB",
+      "phase": "PHASE_END",
+      "time_ticks_ms": "250720956",
+      "derived_time_utc": "2026-11-04T02:25:23.879+00:00",
+      "source": {
+        "id": 8301,
+        "type": "URL_REQUEST",
+        "start_time_ticks_ms": "250720724"
+      },
+      "params": {},
+      "omitted_param_names": []
+    },
+    {
+      "event_index": 11057,
+      "type": "HTTP2_SESSION_RECV_DATA",
+      "phase": "PHASE_NONE",
+      "time_ticks_ms": "250720956",
+      "derived_time_utc": "2026-11-04T02:25:23.879+00:00",
+      "source": {
+        "id": 8311,
+        "type": "HTTP2_SESSION",
+        "start_time_ticks_ms": "250720855"
+      },
+      "params": {
+        "fin": false,
+        "size": 61,
+        "stream_id": 1
+      },
+      "omitted_param_names": []
+    },
+    {
+      "event_index": 11077,
+      "type": "URL_REQUEST_JOB_FILTERED_BYTES_READ",
+      "phase": "PHASE_NONE",
+      "time_ticks_ms": "250720958",
+      "derived_time_utc": "2026-11-04T02:25:23.881+00:00",
+      "source": {
+        "id": 8301,
+        "type": "URL_REQUEST",
+        "start_time_ticks_ms": "250720724"
+      },
+      "params": {
+        "byte_count": 61
+      },
+      "omitted_param_names": [
+        "bytes"
+      ]
+    },
+    {
+      "event_index": 11081,
+      "type": "HTTP2_SESSION_RECV_DATA",
+      "phase": "PHASE_NONE",
+      "time_ticks_ms": "250721181",
+      "derived_time_utc": "2026-11-04T02:25:24.104+00:00",
+      "source": {
+        "id": 8311,
+        "type": "HTTP2_SESSION",
+        "start_time_ticks_ms": "250720855"
+      },
+      "params": {
+        "fin": true,
+        "size": 0,
+        "stream_id": 1
+      },
+      "omitted_param_names": []
+    },
+    {
+      "event_index": 11083,
+      "type": "CORS_REQUEST",
+      "phase": "PHASE_END",
+      "time_ticks_ms": "250721183",
+      "derived_time_utc": "2026-11-04T02:25:24.106+00:00",
+      "source": {
+        "id": 8301,
+        "type": "URL_REQUEST",
+        "start_time_ticks_ms": "250720724"
+      },
+      "params": {},
+      "omitted_param_names": []
+    },
+    {
+      "event_index": 11084,
+      "type": "REQUEST_ALIVE",
+      "phase": "PHASE_END",
+      "time_ticks_ms": "250721183",
+      "derived_time_utc": "2026-11-04T02:25:24.106+00:00",
+      "source": {
+        "id": 8301,
+        "type": "URL_REQUEST",
+        "start_time_ticks_ms": "250720724"
+      },
+      "params": {},
+      "omitted_param_names": []
+    }
+  ]
+}

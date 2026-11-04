@@ -1,0 +1,43 @@
+{
+  "evidence_type": "operator_observation_of_real_native_ui",
+  "observed_date_local": "2026-11-04",
+  "timezone": "Asia/Singapore",
+  "app_version_displayed": "2.6.16(5304)",
+  "settings_origin": "chrome-extension://khmgfdkajnigikondkcjbaflpjflfiee",
+  "action": "Two separate recordings, one Save in each, using the same synthetic configuration. Observe failure, close unsaved form, confirm Log file written.",
+  "inputs_observed": {
+    "api_uri": "http://127.0.0.1:3425/v1/chat/completions",
+    "api_key": "IMA_PUBLIC_EVIDENCE_20261104_11d4a342",
+    "api_key_kind": "synthetic marker; no permissions",
+    "model_name": "group/deepseek-v4-1-flash",
+    "token_fields": "left at defaults"
+  },
+  "ui_message_observed": "校验失败，请检查模型配置",
+  "save_succeeded": false,
+  "existing_model_configurations_modified": false,
+  "log_stop_observed": "Log file written for both Default and Everything recordings",
+  "correlated_network_receipt": "evidence/observations/native-netlog-metadata.json",
+  "correlation_basis": "Exactly one add_model POST per recording around one operator Save action; matching settings-extension initiator. Raw-mode request body independently matches all declared UI string inputs.",
+  "not_proven": [
+    "First Default-mode recording contains no body; raw-mode DATA frames separately establish the submitted JSON.",
+    "The error was observed in the UI and independently decoded from the raw-mode response JSON.",
+    "No independent device attestation or timestamp authority."
+  ],
+  "captures": [
+    {
+      "mode": "Default",
+      "save_count": 1,
+      "receipt": "evidence/observations/native-netlog-metadata.json"
+    },
+    {
+      "mode": "Everything",
+      "save_count": 1,
+      "receipt": "evidence/observations/live-wire-proof.json",
+      "screenshot": "evidence/screenshots/live-save-error-crop.png"
+    }
+  ],
+  "observed_native_default_tokens": {
+    "max_input_tokens": 172,
+    "max_output_tokens": 32
+  }
+}
